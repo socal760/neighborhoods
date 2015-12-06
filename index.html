@@ -1,0 +1,35 @@
+<html>
+<head>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js " ></script>
+    <title>freshmap</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script type="text/javascript">
+
+        var map;
+
+        $(document).ready(function(){
+
+            // Build our map, center it on LA City Hall and set the Zoom to 11
+            map = L.map('map').setView([34.0536, -118.2430], 11);
+
+
+            // see some other map tile options @ http://leaflet-extras.github.io/leaflet-providers/preview/
+            // map tiles from Humanitarian Open Street Map Team
+            L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
+            }).addTo(map);
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="map"></div>
+</body>
+
+</html>
