@@ -74,10 +74,15 @@
             });
 
 
+            // Now we want to plot haikus on the map
+            //
+            // Add a marker for each haiku in our haiku CSV
             var pointsLayer = omnivore.csv('haikus.csv').on('ready', function() {
+
+              //Once the markers are added, attach a popup to each marker
               pointsLayer.eachLayer(function(point) {
                 point.bindPopup(
-                  point.feature.properties.description + "<br /> by <a href='http://github.com/"  + point.feature.properties.github + "' >" + point.feature.properties.github + "</a>"
+                  point.feature.properties.haiku + "<br /> by <a href='http://github.com/"  + point.feature.properties.github + "' >" + point.feature.properties.github + "</a>"
                 );
               });
             }).addTo(map);
