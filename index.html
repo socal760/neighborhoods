@@ -1,26 +1,23 @@
 <html>
 <head>
+    <title>Neighborhood Haikus</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://code.jquery.com/jquery-latest.min.js " ></script>
-    <title>MaptimeLA | Neighborhoods</title>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
     <link rel="stylesheet" href="style.css" />
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
     <script type="text/javascript">
 
         var map;
 
         $(document).ready(function(){
+            L.mapbox.accessToken = 'pk.eyJ1IjoibWFwdGltZWxhb21hciIsImEiOiJjaWd3MWVxYzYwcnpzdmttNXF0YnMyNGNpIn0.j-U_d3YrKY3uXqmVXN2RWA';
 
             // Build our map, center it on LA City Hall and set the Zoom to 11
-            map = L.map('map').setView([34.0536, -118.2430], 11);
-
-            // see some other map tile options @ http://leaflet-extras.github.io/leaflet-providers/preview/
-            // map tiles from Humanitarian Open Street Map Team
-            L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
-            }).addTo(map);
+            map = L.mapbox.map('map', 'mapbox.streets').setView([34.0536, -118.2430], 11);;
 
             // Now we want to draw some neighborhoods on the map!
             //
@@ -75,6 +72,16 @@
                 onEachFeature: onEachNeighborhood
               }).addTo(map);
             });
+
+
+            var pointsLayer = omnivore.csv('haikus.csv').on('ready', function() {
+              pointsLayer.eachLayer(function(point) {
+                point.bindPopup(
+                  point.feature.properties.description + "<br /> by <a href='http://github.com/"  + point.feature.properties.github + "' >" + point.feature.properties.github + "</a>"
+                );
+              });
+            }).addTo(map);
+
         });
 
     </script>
@@ -82,7 +89,7 @@
 
 <body>
     <div id="map">
-      <h1 class="map-header">Neighborhoods of MaptimeLA</h1>
+      <h1 class="map-header">Neighborhood Haiku's</h1>
     </div>
 </body>
 
