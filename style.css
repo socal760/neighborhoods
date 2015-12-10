@@ -3,6 +3,11 @@
   width:100%;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .map-header {
   z-index: 1;
   position: absolute;
