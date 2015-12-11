@@ -66,7 +66,7 @@ Then open your text editor and use it to open the `haiku.csv` file in our projec
 
 Then come up with a haiku. 
 
-**This is the hard part.** Traditional Japanese Haiku are "short poems about a fleeting moment in nature" with no specific syllabic constraints. Less traditionaly, American haiku's tend to follow a rigid three line "5-7-5" syllable format. Don't fret too much. Any issues with your haiku will be addressed in our forthcoming rigourous *haiku pull request* process. 
+**This is the hard part.** Traditional Japanese Haiku are "short poems about a fleeting moment in nature" with no specific syllabic constraints. Less traditionaly, American haiku's tend to follow a rigid three line "5-7-5" syllable format and tend to be about whatever. Either way, don't fret too much. Any issues with your haiku will be addressed in our forthcoming rigourous *haiku pull request* process. :wink:
 
 Once you've come up with a haiku, enter it into the haiku.csv in a similar format to the existing haiku.
 
