@@ -31,6 +31,15 @@ Depending on whether you're using the command line tools or the GUI, some of the
 
 The first step is to copy down our repository. This is called cloning.
 
+If you are using the git command line, first open a terminal. Then decide where you want to keep our project files. If you don't know, try running this in your terminal:
+
+```
+mkdir GitHub
+cd GitHub
+```
+That will create a new directory (folder) called GitHub where you can store all your projects.
+
+Then clone our repository:
 ```
 git clone https://github.com/maptimeLA/neighborhoods.git
 ```
@@ -81,25 +90,37 @@ github,haiku,latitude,longitude
 
 **Note** put your haiku in quotes, and separate the lines with a `<br />` html tag.
 
-
 ### Commit
+
+Committing is how you "snapshot" your changes to git.
+
+If you are using command line git, from your project directory run this:
 
 ```
 git add haiku.csv
 git commit -m "Added my haiku"
 ```
 
+You can check that it worked by running "git show" in your terminal. You should see some output in your terminal which includes your new haiku.
+
 ### Push
+
+So at this point your haiku changes are only in your local git repository. But the goal is to contribute your local work back to the main repository so everyone can appreciate it at http://maptimela.github.io/neighborhoods.
+
+If you are using command line git, from your project directory run this:
 
 ```
 git push origin echo-park-lake-haiku
 ```
+**Remember** to substitute in whatever your branch name was for "echo-park-lake-haiku"!
+
+If this worked you should be able to see your branch on github by going to: https://github.com/maptimeLA/neighborhoods/branches
 
 ### Pull request
 
 What's a pull request?
 
-In your browser...
+To create a pull requets...
 
  - Go to https://github.com/maptimeLA/neighborhoods
  - Go to "Pull requests" and then "Create"
