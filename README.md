@@ -29,7 +29,7 @@ Depending on whether you're using the command line tools or the GUI, some of the
 
 ### Clone
 
-The first step is to copy down our repository, this is called cloning.
+The first step is to copy down our repository. This is called cloning.
 
 ```
 git clone https://github.com/maptimeLA/neighborhoods.git
@@ -37,12 +37,17 @@ git clone https://github.com/maptimeLA/neighborhoods.git
 
 You should now be able to run a local version of our neighborhood haiku app.
 
+In your terminal change to our *project directory* (this is the folder you just cloned).
 ```
 cd neighborhoods
+```
+
+Then use python to start a local webserver.
+```
 python -m SimpleHTTPServer
 ```
 
-Now open a broswer and go to "localhost:8000". You should see our haiku map. If not, or you see some kind of error, there was probably a problem with the setup somewhere. Let us know!
+Now open a browser and go to "localhost:8000". You should see our haiku map. If not, or if you see some kind of error, there was a problem with setup somewhere. Let us know, and we'll help you figure it out!
 
 To quit the local webserver, in the terminal type ctrl+c.
 
@@ -50,20 +55,27 @@ To quit the local webserver, in the terminal type ctrl+c.
 
 The first thing to do when making changes to a project, is to create a new branch. What **is** a branch anyway?
 
-Since your other terminal is busy serving our local website
+Since your other terminal is busy serving our website, you'll need a new one. Open another terminal and go to our project directory.
 
 ```
+cd ~/GitHub/neighborhoods
 git checkout -b echo-park-lake-haiku
 ```
 
-Then open the haiku.csv file in your favorite text editor and add your haiku in a similar format to the others.
+Then open your text editor and use it to open the `haiku.csv` file in our project directory.
+
+Then come up with a haiku. 
+
+**This is the hard part.** Traditional Japanese Haiku are "short poems about a fleeting moment in nature" with no specific syllabic constraints. Less traditionaly, American haiku's tend to follow a rigid three line "5-7-5" syllable format. Don't fret too much. Any issues with your haiku will be addressed in our forthcoming rigourous *haiku pull request* process. 
+
+Once you've come up with a haiku, enter it into the haiku.csv in a similar format to the existing haiku.
 
 ```
 github,haiku,latitude,longitude
 "michaelkirk","Illicit lotus<br />Chili mango, jicama<br />This lake has secrets.",34.073,-118.261
 ```
 
-Make sure to put your haiku in quotes, and separate the lines with a `<br />` html tag.
+**Note** put your haiku in quotes, and separate the lines with a `<br />` html tag.
 
 
 ### Commit
