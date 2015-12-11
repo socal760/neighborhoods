@@ -64,11 +64,13 @@ git checkout -b echo-park-lake-haiku
 
 Then open your text editor and use it to open the `haiku.csv` file in our project directory.
 
-Then come up with a haiku. 
+Remember these are **place** haikus. So pick a place and then come up with a haiku.
 
-**This is the hard part.** Traditional Japanese Haiku are "short poems about a fleeting moment in nature" with no specific syllabic constraints. Less traditionaly, American haiku's tend to follow a rigid three line "5-7-5" syllable format and tend to be about whatever. Either way, don't fret too much. Any issues with your haiku will be addressed in our forthcoming rigourous *haiku pull request* process. :wink:
+**This is the hard part.** Traditional Japanese Haiku are "short poems about a fleeting moment in nature" with no specific syllabic constraints. Less traditionaly, American haiku's tend to follow a rigid three line "5-7-5" syllable format and tend to be about whatever. Either way, don't fret too much. Any issues with your haiku will be addressed in our forthcoming rigourous *haiku pull request* process. :wink: 
 
-Once you've come up with a haiku, enter it into the haiku.csv in a similar format to the existing haiku.
+**This is the easy part.** We'll need the latitude and longitude of your place to be able to plot it on the map. There are lots of ways to find lat/lon. Try this on: http://itouchmap.com/latlong.html
+
+Once you've decided on a place, found it's lat/lon, and come up with a haiku, enter it into the haiku.csv in a similar format to the existing haiku.
 
 ```
 github,haiku,latitude,longitude
