@@ -25,17 +25,32 @@ you!
 
 ## Exercise
 
-The steps are the same, but your methods will vary a bit depending on wether you're using the command line tools or the GitHub GUI.
+Depending on whether you're using the command line tools or the GUI, some of these steps will be different.
 
 ### Clone
+
+The first step is to copy down our repository, this is called cloning.
 
 ```
 git clone https://github.com/maptimeLA/neighborhoods.git
 ```
 
+You should now be able to run a local version of our neighborhood haiku app.
+
+```
+cd neighborhoods
+python -m SimpleHTTPServer
+```
+
+Now open a broswer and go to "localhost:8000". You should see our haiku map. If not, or you see some kind of error, there was probably a problem with the setup somewhere. Let us know!
+
+To quit the local webserver, in the terminal type ctrl+c.
+
 ### Edit
 
 The first thing to do when making changes to a project, is to create a new branch. What **is** a branch anyway?
+
+Since your other terminal is busy serving our local website
 
 ```
 git checkout -b echo-park-lake-haiku
