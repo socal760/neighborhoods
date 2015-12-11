@@ -55,6 +55,8 @@ To quit the local webserver, in the terminal type ctrl+c.
 
 The first thing to do when making changes to a project, is to create a new branch. What **is** a branch anyway?
 
+Remember we're writing **place** haikus. So think about the place you want to write about, and create a branch named after that place. 
+
 Since your other terminal is busy serving our website, you'll need a new one. Open another terminal and go to our project directory.
 
 ```
@@ -64,7 +66,7 @@ git checkout -b echo-park-lake-haiku
 
 Then open your text editor and use it to open the `haiku.csv` file in our project directory.
 
-Remember these are **place** haikus. So pick a place and then come up with a haiku.
+Now, come up with a haiku about your place.
 
 **This is the hard part.** Traditional Japanese Haiku are "short poems about a fleeting moment in nature" with no specific syllabic constraints. Less traditionaly, American haiku's tend to follow a rigid three line "5-7-5" syllable format and tend to be about whatever. Either way, don't fret too much. Any issues with your haiku will be addressed in our forthcoming rigourous *haiku pull request* process. :wink: 
 
