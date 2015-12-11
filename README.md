@@ -95,6 +95,16 @@ git push origin echo-park-lake-haiku
 
 ### Pull request
 
-In your browser go to https://github.com/maptimeLA/neighborhoods
-Go to "Pull requests" and then "Create"
-Leave the base branch as "gh-pages" but change the "compare" branch to your branch name. Don't see it? Then likely there was an issue with the [push](#push) step. Try again or ask for some help!
+What's a pull request?
+
+In your browser...
+
+ - Go to https://github.com/maptimeLA/neighborhoods
+ - Go to "Pull requests" and then "Create"
+ - Leave the base branch as "gh-pages" but change the "compare" branch to your branch name. 
+
+Don't see it? Then likely there was an issue with the [push](#push) step. Try again or ask for some help!
+
+At this point, your pull request is waiting to be merged back into the main project. Try to find a nice reviewer for feedback on your haiku and it will get merged in no time!
+
+If you see an error about *merge conflicts*, ask for help!
