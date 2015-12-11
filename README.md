@@ -1,6 +1,12 @@
-# Collaborating with git and GitHub
+# Neighborhood Haiku Map
+
+Tonight we'll be building a map of place-haikus about *your* neighborhood. See the live version here: http://maptimela.github.io/neighborhoods/ 
+
+It's pretty lonely at the moment. We need you to help add haikus to the map! To do this we'll show you how to create a GitHub pull request with your haikus.
 
 ## Setup
+
+First a bit of setup...
 
  - **Create a GitHub account** if you don’t already have one here: https://github.com/
  - **Install git** (either the graphical tool or the command line tool)
