@@ -8,12 +8,21 @@ body {
   padding: 0;
 }
 
-.map-header {
+.overlay {
   z-index: 1;
-  position: absolute;
   right: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, .5);
+  color: #eee;
+}
+
+.map-header {
   margin-top: 0;
   padding: 8px;
-  color: #eee;
-  background: rgba(0, 0, 0, .5);
+  border-bottom: solid #eee 1px;
+}
+
+.haiku-counts {
+  padding-left: 1rem;
+  list-style: none;
 }

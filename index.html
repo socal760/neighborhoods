@@ -7,11 +7,15 @@
     <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+    <script src='leaflet-pip.min.js'></script>
     <link rel="stylesheet" href="style.css" />
 
     <script type="text/javascript">
 
-        var map;
+        var map, neighborhoods;
+
+        // We'll keep track of our counts per neighborhood here
+        var haikuCounts = {};
 
         $(document).ready(function(){
             L.mapbox.accessToken = 'pk.eyJ1IjoibWFwdGltZWxhb21hciIsImEiOiJjaWd3MWVxYzYwcnpzdmttNXF0YnMyNGNpIn0.j-U_d3YrKY3uXqmVXN2RWA';
@@ -67,34 +71,63 @@
 
               // Add the fetched data to our map with the styles and
               // behaviors we defined above.
-              L.geoJson(contentsOfGeoJsonFile, {
+              neighborhoods = L.geoJson(contentsOfGeoJsonFile, {
                 "style": neighborhoodStyle,
                 onEachFeature: onEachNeighborhood
               }).addTo(map);
+
+
+              // Now we want to plot haikus on the map
+              //
+              // Add a marker for each haiku in our haiku CSV
+              var pointsLayer = omnivore.csv('haikus.csv').on('ready', function() {
+
+                // Some things we want to do for each haiku marker
+                pointsLayer.eachLayer(function(point) {
+                  // Attach a popup to each marker with the haiku and a "by" line
+                  point.bindPopup(
+                    point.feature.properties.haiku + "<br /><br /> by <a target='_blank' href='http://github.com/"  + point.feature.properties.github + "' >" + point.feature.properties.github + "</a>"
+                  );
+
+                  // Figure out what neighborhood the point is in and tally up
+                  // the haiku count for that neighborhood
+                  var neighborhood = leafletPip.pointInLayer(point.getLatLng(), neighborhoods, true);
+                  if (neighborhood[0]) {
+                    neighborhoodName = neighborhood[0].feature.properties.name;
+                    incrementHaikuCounts(neighborhoodName);
+                  } else {
+                    console.log(point.getLatLng() + " falls outside of any known neighborhoods");
+                  }
+                });
+              }).addTo(map);
             });
 
-
-            // Now we want to plot haikus on the map
-            //
-            // Add a marker for each haiku in our haiku CSV
-            var pointsLayer = omnivore.csv('haikus.csv').on('ready', function() {
-
-              //Once the markers are added, attach a popup to each marker
-              pointsLayer.eachLayer(function(point) {
-                point.bindPopup(
-                  point.feature.properties.haiku + "<br /> by <a href='http://github.com/"  + point.feature.properties.github + "' >" + point.feature.properties.github + "</a>"
-                );
-              });
-            }).addTo(map);
-
         });
+
+        // Add's one to the haiku count for the given neighborhood name
+        // and re-renders the haiku count list.
+        function incrementHaikuCounts(neighborhoodName) {
+          if (haikuCounts[neighborhoodName]) {
+            haikuCounts[neighborhoodName] = haikuCounts[neighborhoodName] + 1;
+          } else {
+            haikuCounts[neighborhoodName] = 1;
+          }
+          countItems = '';
+          $.each(haikuCounts, function(name, count) {
+            countItems += "<li>" + name + ": " + count + "</li>";
+          });
+          $('.haiku-counts').html( countItems );
+        }
 
     </script>
 </head>
 
 <body>
     <div id="map">
-      <h1 class="map-header">Neighborhood Haiku's</h1>
+      <div class="overlay">
+        <h1 class="map-header">Neighborhood Haiku Counts</h1>
+        <ul class="haiku-counts"></ul>
+      </div>
     </div>
 </body>
 
